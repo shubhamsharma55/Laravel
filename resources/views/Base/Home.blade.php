@@ -1,46 +1,59 @@
-@extends('Components.Header')
-@section('title', 'Home | Login')
+@extends('Components.Header') @section('title', 'Home | Login')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div id="navbar" class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Dashbord</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    {{-- <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li> --}}
-                    {{-- <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li> --}}
-                    {{-- <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Disabled</a>
-                    </li> --}}
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
+    <div class="container-fluid p-0">
+        <!-- Just an image -->
+        <nav class="navbar navbar_Fm">
+            <div class="logo_Fm mx-auto"">
+                <a class="navbar-brand href="/">
+                    Finance Manager
+                </a>
+            </div>
+            @auth
+
+                <div class="action_Fm">
+                    <Button class="btn" id="Fm_Auth_Logout">Logout</Button>
                 </div>
-            </nav>
-        </div>
+            @endauth
+
+        </nav>
+
+        <section class="section_Home_Fm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-xs-12 col-sm-12 article_FM d-flex justify-content-center align-items-center">
+                        <h1 class="h1_Fm">
+                            Welcome to Finanace Manager By<sub> Shubham</sub>
+                        </h1>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-sm-12 article_FM d-flex justify-content-center align-items-center">
+                        <form method="POST" id="login_Form_Fm" class="w-75">
+                            @csrf
+                            <div class="form-group">
+                                <label for="email">{{ __('Email Address') }}</label>
+                                <input id="email" type="email" class="form-control" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">{{ __('Password') }}</label>
+                                <input id="password" type="password" class="form-control" name="password" required
+                                    autocomplete="current-password">
+                            </div>
+
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</div>
+@section('scripts')
+    <script src="{{ asset('js/base.js') }}"></script>
 @endsection
-    
+
+@endsection

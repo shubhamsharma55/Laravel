@@ -1,5 +1,67 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+/* // CUSTOM CSS VARIABLES */
+:root {
+    --main-bg-color: #eeeeee;
+    --sec-bg-color: #393e46;
+    --main-text-color: #222831;
+    --sec-text-color: #00adb5;
+}
+
+.h1_Fm,
+.h2_Fm,
+.h3_Fm,
+.h4_Fm,
+.h5_Fm {
+    color: var(--sec-text-color);
+}
+
+.navbar_Fm {
+    background-color: var(--main-bg-color);
+    height: 60px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.logo_Fm a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+.section_Home_Fm {
+    background-color: var(--sec-bg-color);
+}
+
+.article_FM {
+    min-height: calc(100vh - 60px);
+}
+
+.form-control {
+    background-color: var(--main-bg-color);
+    color: var(--sec-text-color);
+}
+
+/* Style the "Remember Me" checkbox */
+.form-check-input {
+    background-color: var(--main-bg-color);
+}
+
+.form-check-label,
+.form-group label {
+    color: var(--sec-text-color);
+}
+
+/* Style the login button */
+.btn-primary {
+    background-color: var(--sec-text-color);
+    border-color: var(--sec-text-color);
+    color: var(--main-bg-color);
+}
+
+/* Style the login button on hover */
+.btn-primary:hover {
+    background-color: darken(var(--sec-text-color), 10%);
 }

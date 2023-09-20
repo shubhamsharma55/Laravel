@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\AuthController\AuthController;
+namespace App\Http\Controllers\AuthController;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -12,4 +12,17 @@ use Illuminate\Routing\Controller as BaseController;
 class AuthController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            // Authentication passed
+            return response()->json([
+                "message" => $credentials
+            ]);
+        }
+        // Authentication failed
+        return response()->json(['message' => 'Invalid credentials']);
+    }
 }

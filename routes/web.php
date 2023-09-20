@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController\AuthController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Controller::class, 'Home'])->name('Home');
+Route::get('/', [Controller::class, 'Home'])->name('Home_FM');
+Route::post('/login', [AuthController::class, 'login'])->name('Login_FM');
