@@ -6,7 +6,11 @@ $(document).ready(function () {
             url: "/login", // Adjust the route as per your setup
             data: $(this).serialize(),
             success: function (response) {
-                console.log(response);
+                if (response.status) {
+                    window.location.href = "/dashboard";
+                } else {
+                    alert(response.message);
+                }
             },
             error: function (response) {
                 console.error(response);

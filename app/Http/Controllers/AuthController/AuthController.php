@@ -19,10 +19,25 @@ class AuthController extends BaseController
         if (Auth::attempt($credentials)) {
             // Authentication passed
             return response()->json([
-                "message" => $credentials
+                "status" => true,
+                "message" => "Successfully logged in."
             ]);
         }
         // Authentication failed
-        return response()->json(['message' => 'Invalid credentials']);
+        return response()->json([
+            "status" => false,
+            "message" => "Something went wrong please check ur credentials."
+        ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout(); // Logout the currently authenticated user
+        return redirect()->route('Home_FM'); // Redirect to your desired page after logout
+    }
+
+    public function dashboard(Request $request)
+    {
+        return view('Protected.dashboard');
     }
 }

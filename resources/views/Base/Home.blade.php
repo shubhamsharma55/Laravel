@@ -11,7 +11,7 @@
             @auth
 
                 <div class="action_Fm">
-                    <Button class="btn" id="Fm_Auth_Logout">Logout</Button>
+                    <a href="{{ route('logout') }}" class="btn">Logout</a>
                 </div>
             @endauth
 
@@ -44,8 +44,7 @@
                                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
                                 <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
                             </div>
-
-                            <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
+                            <button type="submit" class="btn btn-primary">Login</button>
                         </form>
                     </div>
                 </div>

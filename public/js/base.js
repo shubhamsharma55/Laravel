@@ -12,7 +12,11 @@ $(document).ready(function () {
       // Adjust the route as per your setup
       data: $(this).serialize(),
       success: function success(response) {
-        console.log(response);
+        if (response.status) {
+          window.location.href = "/dashboard";
+        } else {
+          alert(response.message);
+        }
       },
       error: function error(response) {
         console.error(response);

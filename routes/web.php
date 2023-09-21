@@ -15,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Controller::class, 'Home'])->name('Home_FM');
+
+Route::get('/', [Controller::class, 'Home'])
+    ->name('Home_FM')
+    ->middleware('redirect.authenticated');
+
+Route::middleware(['check.auth'])->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('Dashboard_FM');
+});
+// AJAX REQUEST ROUTES
 Route::post('/login', [AuthController::class, 'login'])->name('Login_FM');
+// AJAX REQUEST ROUTES
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
