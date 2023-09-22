@@ -65,3 +65,42 @@
 .btn-primary:hover {
     background-color: darken(var(--sec-text-color), 10%);
 }
+
+.article_Dashboard_FM {
+    min-height: calc(100vh - 60px);
+    position: relative;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    transition: grid-template-columns 0.45s ease-in-out;
+}
+
+.article_Dashboard_FM aside {
+    background-color: var(--sec-bg-color);
+    overflow: hidden;
+}
+
+.article_Dashboard_FM section {
+    background-color: var(--main-bg-color);
+}
+
+.article_Dashboard_FM.active {
+    grid-template-columns: 0% 100%;
+}
+
+.dashboard_Nav_Fm .nav-item .nav-link {
+    background-color: transparent;
+    color: var(--sec-text-color) !important;
+    transition: 0.15s ease-in-out;
+    border-radius: 0;
+}
+
+.dashboard_Nav_Fm .nav-item .nav-link.active {
+    background-color: var(--sec-text-color);
+    color: var(--main-text-color) !important;
+    transition: 0.15s ease-in-out;
+    border-radius: 0;
+}
+.dashboard_Nav_Fm .nav-item .nav-link:hover {
+    opacity: 0.8;
+}
